@@ -1,13 +1,19 @@
-import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
-const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
+const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    setIsLoggedIn(!!token); 
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('authToken');
-    setIsLoggedIn(false); // Update the logged-in state
-    navigate('/login');
+    setIsLoggedIn(false);
+    navigate('/login'); 
   };
 
   return (
@@ -42,3 +48,4 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
 };
 
 export default Navbar;
+

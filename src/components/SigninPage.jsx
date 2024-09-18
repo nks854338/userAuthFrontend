@@ -19,7 +19,7 @@ const SigninPage = () => {
     }
   
     try {
-      await axios.post('https://user-auth-backend-beta.vercel.app/user/', formData);
+      await axios.post('https://user-auth-backend-beta.vercel.app', formData);
       navigate('/login');
     } catch (error) {
       console.error('Error signing up:', error);

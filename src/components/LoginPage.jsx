@@ -21,6 +21,7 @@ const LoginPage = () => {
         setErrorMessage("Login failed. Please try again."); 
       }
       console.log("Login response:", response.data); 
+      console.log("login ho gaya");
     } catch (error) {
       console.error('Error logging in:', error);
       setErrorMessage("Invalid email or password.");

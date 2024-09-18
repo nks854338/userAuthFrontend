@@ -12,13 +12,12 @@ function App() {
     <Router>
       <Navbar /> 
       <Routes>
-        <Route path="/signin" element={<SigninPage />} />
+        <Route path="/" element={<SigninPage />} />
         <Route path="/login" element={<LoginPage />} /> 
         <Route
           path="/home"
           element={isAuthenticated ? <HomePage /> : <Navigate to="/login" />}
         />
-        <Route path="/" element={<Navigate to="/signin" />} />
       </Routes>
     </Router>
   );

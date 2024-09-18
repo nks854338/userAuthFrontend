@@ -13,7 +13,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://user-auth-backend-beta.vercel.app/user/login', formData);
+      const response = await axios.post('https://user-auth-backend-beta.vercel.app/login', formData);
       if (response.data.token) {
         localStorage.setItem('authToken', response.data.token);
         navigate('/home');
